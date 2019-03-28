@@ -10,52 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_104036) do
+ActiveRecord::Schema.define(version: 0) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "cars", force: :cascade do |t|
-    t.boolean "image"
-    t.string "name"
-    t.text "description"
-    t.string "reviews"
-    t.string "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "guides", force: :cascade do |t|
-    t.boolean "image"
-    t.string "name"
-    t.text "description"
-    t.string "reviews"
-    t.string "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "hotels", force: :cascade do |t|
-    t.boolean "image"
-    t.string "name"
-    t.text "description"
-    t.string "reviews"
-    t.string "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "email"
-    t.integer "phone_number"
-    t.string "address_line"
-    t.string "postal_code"
-    t.string "city"
-    t.string "country"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end
