@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_104106) do
+ActiveRecord::Schema.define(version: 2019_03_28_143309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(version: 2019_03_28_104106) do
     t.string "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "check_in"
+    t.date "check_out"
+    t.bigint "attraction_id"
+    t.bigint "car_id"
+    t.bigint "guide_id"
+    t.bigint "hotel_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attraction_id"], name: "index_bookings_on_attraction_id"
+    t.index ["car_id"], name: "index_bookings_on_car_id"
+    t.index ["guide_id"], name: "index_bookings_on_guide_id"
+    t.index ["hotel_id"], name: "index_bookings_on_hotel_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -68,4 +85,9 @@ ActiveRecord::Schema.define(version: 2019_03_28_104106) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookings", "attractions"
+  add_foreign_key "bookings", "cars"
+  add_foreign_key "bookings", "guides"
+  add_foreign_key "bookings", "hotels"
+  add_foreign_key "bookings", "users"
 end
